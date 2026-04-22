@@ -13,7 +13,9 @@ import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 
 export default function Home() {
-  const [modal, setModal] = useState<{ open: boolean; type: "demo" | "trial" }>({ open: false, type: "demo" });
+  const [modal, setModal] = useState<{ open: boolean; type: "demo" | "trial" }>(
+    { open: false, type: "demo" },
+  );
 
   const openDemo = () => setModal({ open: true, type: "demo" });
   const openTrial = () => setModal({ open: true, type: "trial" });
@@ -27,8 +29,8 @@ export default function Home() {
       <HowItWorksSection />
       <DashboardSection />
       <FeaturesSection />
-      <TestimonialsSection />
-      <PricingSection onTrial={openTrial} />
+      {/* <TestimonialsSection /> */}
+      {/* <PricingSection onTrial={openTrial} /> */}
       <CtaSection onDemo={openDemo} onTrial={openTrial} />
       <Footer />
       <Modal isOpen={modal.open} onClose={closeModal} type={modal.type} />
